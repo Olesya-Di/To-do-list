@@ -1,0 +1,491 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  background: url("img/background.png") repeat;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.border {
+  align-items: center;
+  background: url("img/background.png") repeat;
+  box-shadow: inset 6px 6px 8px 0 rgba(0, 0, 0, 0.4);
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  height: 100%;
+  margin: 5% auto;
+  position: relative;
+  width: 80%;
+}
+.border:after, .border:before {
+  animation: anim-border 15s ease-in-out infinite;
+  content: "";
+  filter: none;
+  height: calc(100% + 100px);
+  mix-blend-mode: multiply;
+  position: absolute;
+  width: calc(100% + 100px);
+  z-index: -1;
+}
+@keyframes anim-border {
+  0%, 100% {
+    -webkit-clip-path: polygon(0 0, calc(100% - 33px) calc(0% + 33px), 100% 100%, calc(0% + 33px) calc(100% - 33px));
+            clip-path: polygon(0 0, calc(100% - 33px) calc(0% + 33px), 100% 100%, calc(0% + 33px) calc(100% - 33px));
+  }
+  50% {
+    -webkit-clip-path: polygon(calc(0% + 33px) calc(0% + 33px), 100% 0, calc(100% - 33px) calc(100% - 33px), 0 100%);
+            clip-path: polygon(calc(0% + 33px) calc(0% + 33px), 100% 0, calc(100% - 33px) calc(100% - 33px), 0 100%);
+  }
+}
+.border:after {
+  animation-delay: -5s;
+  background-color: #009045;
+  -webkit-clip-path: polygon(0 0, calc(100% - 33px) calc(0% + 33px), 100% 100%, calc(0% + 33px) calc(100% - 33px));
+          clip-path: polygon(0 0, calc(100% - 33px) calc(0% + 33px), 100% 100%, calc(0% + 33px) calc(100% - 33px));
+}
+.border:before {
+  background-color: #b0ef8f;
+  -webkit-clip-path: polygon(calc(0% + 33px) calc(0% + 33px), 100% 0, calc(100% - 33px) calc(100% - 33px), 0 100%);
+          clip-path: polygon(calc(0% + 33px) calc(0% + 33px), 100% 0, calc(100% - 33px) calc(100% - 33px), 0 100%);
+}
+.border__content {
+  display: flex;
+  flex-direction: column;
+  font-family: "Marck Script", cursive;
+  gap: 50px;
+  padding: 5%;
+  width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: url("img/cursor.png"), pointer;
+  font-family: "Marck Script";
+}
+button img:hover {
+  filter: drop-shadow(1px 1px 1px grey);
+}
+
+.btn {
+  height: 30px;
+  width: 30px;
+}
+.btn img {
+  width: 100%;
+}
+
+.checked {
+  color: grey;
+  opacity: 0.6;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+.header__logo {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+.header__logo__img {
+  height: 60px;
+  width: 60px;
+}
+.header__logo__title {
+  font-size: calc(24px + 22 * (100vw - 400px) / 1040);
+  text-align: center;
+  text-transform: uppercase;
+}
+.header__logo__title span {
+  background: linear-gradient(45deg, #0B2349 2%, #009045 50%, #b0ef8f);
+  color: #0B2349;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.nav__btn {
+  font-size: 26px;
+  font-weight: 600;
+}
+.nav__btn:hover {
+  color: #b0ef8f;
+  font-weight: 500;
+  text-shadow: 1px 1px 1px grey;
+}
+
+.activeBtn {
+  color: #009045;
+  font-weight: 700;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.main__title {
+  color: #009045;
+  text-align: center;
+}
+.main__task {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main__task__listBlock {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 65px;
+}
+.main__task__taskBlock {
+  max-width: 850px;
+  text-align: justify;
+  width: 100%;
+}
+.main__task__taskBlock p {
+  margin-left: 20px;
+}
+.main__task__taskBlock hr {
+  background-color: #d99c2f;
+  border: none;
+  color: #d99c2f;
+  height: 1px;
+  width: 100%;
+}
+.main__task__btnBlock {
+  display: flex;
+  gap: 30px;
+}
+.main__task__btnBlock__label {
+  display: block;
+  height: 30px;
+  position: relative;
+  width: 30px;
+}
+.main__task__btnBlock__label span {
+  background: url("img/ready.png") no-repeat;
+  cursor: url("img/cursor.png"), pointer;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.main__task__btnBlock__label span:hover {
+  filter: drop-shadow(1px 1px 1px grey);
+}
+.main__task__btnBlock__checkbox {
+  visibility: hidden;
+}
+.main__task__btnBlock__checkbox:checked ~ span {
+  background: url("img/readyactive.png") no-repeat;
+  background-size: cover;
+}
+.main__addTask {
+  display: flex;
+  justify-content: center;
+}
+.main__addTask__btnShowForm {
+  font-size: 26px;
+  font-weight: 700;
+}
+.main__addTask__btnShowForm:hover {
+  color: #b0ef8f;
+  font-weight: 500;
+  text-shadow: 1px 1px 1px grey;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  font-size: calc((100vw - 480px) / 720 * 4 + 14px);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.modal__window {
+  animation-name: animatetop;
+  animation-duration: 0.8s;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.8s;
+  background: url("img/background.png") repeat;
+  border: 5px #009045;
+  border-style: outset;
+  box-shadow: 10px 10px 10px #373741;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 5%;
+  position: relative;
+  width: 70%;
+}
+.modal__window__close {
+  align-self: end;
+}
+.modal__window__close:hover {
+  cursor: url("img/cursor.png"), pointer;
+  text-shadow: 1px 1px 3px gray;
+}
+.modal__window__title {
+  color: #009045;
+  text-align: center;
+}
+.modal__window__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal__window__form__inputBlock {
+  display: flex;
+  flex-direction: column;
+}
+.modal__window__form__input {
+  align-self: center;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffe87a;
+  font-family: "Marck Script";
+  font-size: 26px;
+  width: 90%;
+}
+.modal__window__form__input:hover {
+  box-shadow: inset 0px -5px 3px -5px #f3c44b;
+  cursor: url("img/cursor.png"), pointer;
+}
+.modal__window__form__input:focus {
+  background: url("img/background.png") repeat;
+  border-color: #d99c2f;
+  box-shadow: inset 0px -5px 3px -5px #d99c2f;
+  outline: 0;
+}
+.modal__window__form__input:-webkit-autofill, .modal__window__form__input:-webkit-autofill:focus {
+  -webkit-transition: background-color 600000s 0s, color 600000s 0s;
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+.modal__window__form__input[data-autocompleted] {
+  background-color: transparent !important;
+}
+.modal__window__form__error {
+  color: #dc5a64;
+  height: 20px;
+}
+.modal__window__form__btnBlock {
+  align-self: center;
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.close-modal {
+  animation-name: close;
+  animation-duration: 0.6s;
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.modal-active {
+  display: flex;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1039px) {
+  .border {
+    margin: 7% auto;
+  }
+  .btn {
+    height: 25px;
+    width: 25px;
+  }
+  .header__logo__img {
+    height: 50px;
+    width: 50px;
+  }
+  .main__task__title {
+    font-size: 26px;
+  }
+  .main__task__discription {
+    font-size: 22px;
+  }
+  .main__task__btnBlock__label {
+    height: 25px;
+    width: 25px;
+  }
+  .modal__window {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 768px) {
+  .border {
+    margin: 8% auto;
+    width: 85%;
+  }
+  .border__content {
+    gap: 40px;
+  }
+  .border:after, .border:before {
+    width: calc(100% + 70px);
+    height: calc(100% + 70px);
+  }
+  .btn {
+    height: 20px;
+    width: 20px;
+  }
+  .header__logo__img {
+    height: 40px;
+    width: 40px;
+  }
+  .nav__btn {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .main__title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  .main__task__taskBlock {
+    line-height: 20px;
+  }
+  .main__task__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .main__task__discription {
+    font-size: 20px;
+  }
+  .main__task__btnBlock {
+    gap: 20px;
+  }
+  .main__task__btnBlock__label {
+    height: 20px;
+    width: 20px;
+  }
+  .main__addTask__btnShowForm {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .modal__window {
+    width: 90%;
+  }
+  .modal__window__form__input {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 449px) {
+  .page {
+    min-width: 350px;
+  }
+  .border {
+    border: 10px double #009045;
+    box-shadow: inset 2px 2px 8px 0 rgba(0, 0, 0, 0.4);
+    font-size: 20px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .border__content {
+    gap: 30px;
+    padding: 30px 5%;
+  }
+  .border:after, .border:before {
+    animation: none;
+    content: none;
+    height: calc(100% + 45px);
+    width: calc(100% + 45px);
+  }
+  .btn {
+    height: 20px;
+    width: 20px;
+  }
+  .header {
+    gap: 20px;
+  }
+  .header__logo__img {
+    height: 30px;
+    width: 30px;
+  }
+  .nav {
+    justify-content: space-between;
+  }
+  .nav__btn {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .main {
+    gap: 20px;
+  }
+  .main__title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .main__task__taskBlock {
+    line-height: 20px;
+  }
+  .main__task__listBlock {
+    gap: 20px;
+  }
+  .main__task__title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .main__task__discription {
+    font-size: 16px;
+  }
+  .main__task__btnBlock {
+    gap: 15px;
+  }
+  .main__task__btnBlock__label {
+    height: 20px;
+    width: 20px;
+  }
+  .main__addTask__btnShowForm {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .modal__window {
+    width: 90%;
+  }
+  .modal__window__form__input {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=style.css.map */

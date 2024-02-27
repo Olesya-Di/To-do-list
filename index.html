@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>To-do list</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="descoription" content="To-do list" />
+    <meta
+      name="keywords"
+      content="html, web-страница, to-do list web-страница"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Protest+Revolution&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+
+  <body class="page">
+    <section class="border">
+      <section class="border__content">
+    <header class="header">
+      <section class="header__logo">
+        <img class="header__logo__img" src="img/logo.png" alt="logo" />
+        <h1 class="header__logo__title">Твой <span>to-do лист</span></h1>
+      </section>
+
+      <nav class="nav">
+        <button class="nav__btn btnFilterAllTask" id="all">все задачи</button>
+        <button class="nav__btn btnFilterInProcess" id="noCompleted">в процессе</button>
+        <button class="nav__btn btnFilterDone" id="completed">выполнено</button>
+      </nav>
+    </header>
+
+    <main class="main">
+      <h2 class="main__title"></h2>
+
+      <article class="main__task"></article>
+
+      <section class="main__addTask">
+        <button class="main__addTask__btnShowForm">
+          Добавить новую задачу
+        </button>
+      </section>
+    </main>
+
+    <article class="modal">
+      <section class="modal__window">
+        <span class="modal__window__close">&#10060;</span>
+        <h2 class="modal__window__title">Новая задача</h2>
+        <form class="modal__window__form" action="GET">
+          <section class="modal__window__form__inputBlock">
+            <label for="inputTitle" class="modal__window__form__label"
+              >Заголовок</label
+            >
+            <input class="modal__window__form__input" id="inputTitle" />
+            <p class="modal__window__form__error"></p>
+          </section>
+          <section class="modal__window__form__inputBlock">
+            <label
+              for="inputDiscription"
+              class="modal__window__form__label"
+              >Описание</label
+            >
+            <input
+              class="modal__window__form__input"
+              id="inputDiscription"
+            />
+          </section>
+
+          <section class="modal__window__form__btnBlock">
+            <button class="modal__window__form__btn btnAddTask btn">
+              <img src="img/add.png" alt="add" />
+            </button>
+            <button class="modal__window__form__btn btnReset btn" type="reset">
+              <img src="img/reset.png" alt="reset" />
+            </button>
+          </section>
+        </form> 
+      </section>
+    </article>
+  </section>  
+    <template id="template">
+      <article class="main__task__listBlock" data-id="">
+      <section class="main__task__taskBlock">
+          <h3 id="titleTask" class="main__task__title"></h3>
+          <p id="discriptionTask" class="main__task__discription"></p> 
+          <hr>
+      </section>
+
+      <section class="main__task__btnBlock">
+          <label class="main__task__btnBlock__label">
+              <input class="main__task__btnBlock__checkbox" type="checkbox" id=""/>
+              <span></span>
+          </label>
+         
+          <button class="main__task__btn btnDel btn">
+              <img class='btnDelImg' src="img/del.png" alt="del" />
+          </button>
+        </section>
+      </section>
+    </article>
+  </template>
+
+  
+    <script src="script.js"></script>
+  </body>
+</html>
